@@ -4,34 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99ae2871-c921-4752-85b2-f211df2dd7b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/PythonProject5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/_asyncio.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/_bz2.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/libcrypto-3.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/libffi-8.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/libssl-3.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/pyexpat.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/python.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/python3.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/python313.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/pythonw.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/select.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/sqlite3.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/tcl86t.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/tk86t.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/unicodedata.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/vcruntime140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/vcruntime140_1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/winsound.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/zlib1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/pyvenv.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/conftest.py" afterDir="false" />
+    <list default="true" id="99ae2871-c921-4752-85b2-f211df2dd7b9" name="Changes" comment="add">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/conftest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +24,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bunchynut&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bunchynut/PythonProject5.git&quot;,
+    &quot;accountId&quot;: &quot;aa7d3fa1-7357-4212-a773-c26d7cdc8820&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Tests/__init__.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -56,17 +47,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests in __init__.py.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.conftest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for test_basic_auth_with_pytest.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in __init__.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conftest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Python tests for test_basic_auth_with_pytest" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="PythonProject5" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_basic_auth_with_pytest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in Tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="PythonProject5" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_basic_auth_with_pytest" />
+        <item itemvalue="Python tests.Python tests in Tests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -82,6 +113,19 @@
       <option name="presentableId" value="Default" />
       <updated>1761847805319</updated>
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <option name="closed" value="true" />
+      <created>1762456632602</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762456632602</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
