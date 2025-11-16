@@ -152,3 +152,4 @@ def test_login():
     browser.element('#flash').should(have.text('You logged into a secure area!'))
     browser.element('#content > div').should(have.text('Welcome to the Secure Area. When you are done click logout below.'))
     browser.element('#content > div > a').click()
+    #
