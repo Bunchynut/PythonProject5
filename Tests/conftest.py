@@ -14,3 +14,4 @@ def browser_management():
         browser.quit()
     except Exception:
         pass
+#
