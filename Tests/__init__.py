@@ -1,10 +1,17 @@
-from selene import browser,have,be
+from selene import browser,have,be,query
+import openpyxl
 import pytest
 import pyautogui
 import time
 
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selene.support.conditions.be import visible
+from selenium.webdriver.common.keys import Keys
+
 
 def test_basic_auth_with_pytest():
     browser.open("/basic_auth")
@@ -49,7 +56,7 @@ def test_broken_images():
         if browser.driver.execute_script("return arguments[0].naturalWidth === 0;", img.locate()):
             broken_count += 1
     print(f"Количество сломанных {broken_count}")
-
+#
 def test_right_click():
     browser.open("/context_menu")
     element = browser.element('#hot-spot').should(be.visible)
@@ -60,13 +67,10 @@ def test_right_click():
     alert.accept()
     pyautogui.press('escape')
 def test_zahod():
-    browser.open("/digest_auth")
-    pyautogui.write("admin")
-    pyautogui.press("tab")
-    pyautogui.write("admin")
-    pyautogui.press("tab")
-    pyautogui.press("enter")
+    browser.open("https://admin:admin@the-internet.herokuapp.com/digest_auth")
+
     browser.element('body').should(have.text("Congratulations! You must have the proper credentials."))
+
 
 def test_propadaet():
     browser.open("/disappearing_elements")
@@ -118,7 +122,7 @@ def test_exit_intent():
     browser.open('/exit_intent')
     pyautogui.moveTo(50,50)
     browser.element('#ouibounce-modal > div.modal').should(be.visible)
-#     browser.element('#ouibounce-modal > div.modal > div.modal-footer > p').click()
+    browser.element('#ouibounce-modal > div.modal > div.modal-footer > p').click()
 
 def test_floating_menu():
     browser.open('/floating_menu#home')
@@ -135,20 +139,62 @@ def test_email():
 
 def test_login():
     browser.open('/login')
-    browser.element('#username').click()
-    pyautogui.write('Admin')
-    browser.element('#password').click()
-    pyautogui.write('Admin')
+    browser.element('#username').click().type('Admin')
+    browser.element('#password').click().type('Admin')
     browser.element('#login > button > i').click()
     browser.element('#flash').should(be.visible)
     browser.element('#flash').should(have.text('Your username is invalid!'))
 
-    browser.element('#username').click()
-    pyautogui.write('tomsmith')
-    browser.element('#password').click()
-    pyautogui.write('SuperSecretPassword!')
+    browser.element('#username').click().type('tomsmith')
+    browser.element('#password').click().type('SuperSecretPassword!')
     browser.element('#login > button > i').click()
     browser.element('#flash').should(be.visible)
     browser.element('#flash').should(have.text('You logged into a secure area!'))
     browser.element('#content > div').should(have.text('Welcome to the Secure Area. When you are done click logout below.'))
     browser.element('#content > div > a').click()
+
+def             \
+        test_nested_frames():
+    browser.open('/nested_frames')
+    browser.switch_to.frame(browser.element('[name="frame-top"]').locate())
+    browser.switch_to.frame(browser.element('[name="frame-left"]').locate())
+    browser.element('body').should(have.text('LEFT'))
+    browser.switch_to.default_content()
+
+    browser.switch_to.frame(browser.element('[name="frame-top"]').locate())
+    browser.switch_to.frame(browser.element('[name="frame-middle"]').locate())
+    browser.element('#content').should(have.text('MIDDLE'))
+    browser.switch_to.default_content()
+
+    browser.switch_to.frame(browser.element('[name="frame-top"]').locate())
+    browser.switch_to.frame(browser.element('[name="frame-right"]').locate())
+    browser.element('body').should(have.text('RIGHT'))
+    browser.switch_to.default_content()
+
+    browser.switch_to.frame(browser.element('[name="frame-bottom"]').locate())
+    browser.element('body').should(have.text('BOTTOM'))
+    browser.switch_to.default_content()
+
+    alert = WebDriverWait(browser.driver, 10).until(EC.alert_is_present())
+    alert.accept()
+
+def test_geolocation():
+    browser.open('/geolocation')
+    browser.element('#content > div > button').click()
+    browser.element('#lat-value').should(have.text('55.96213'))
+    browser.element('#long-value').should(have.text('37.4202334'))
+
+def test_horizontal_slider():
+    browser.open('/horizontal_slider')
+    actions = ActionChains(browser.driver)
+
+    browser.element('#content > div > div > input[type=range]').click()
+    for i in ['2.5', '3', '3.5', '4', '4.5', '5']:
+        browser.element('#range').should(have.text(i))
+        actions.send_keys(Keys.ARROW_RIGHT).perform()
+
+    for i in ['5', '4.5', '4', '3.5', '3', '2.5', '2', '1.5', '1', '0.5', '0']:
+        browser.element('#range').should(have.text(i))
+        actions.send_keys(Keys.ARROW_LEFT).perform()
+
+#  e
