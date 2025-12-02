@@ -1,3 +1,5 @@
+from time import sleep
+
 from selene import browser,have,be,query
 import openpyxl
 import pytest
@@ -221,13 +223,88 @@ from selenium.webdriver.common.keys import Keys
 #         time.sleep(0.5)
 #
 #     browser.all('.jscroll-added').should(have.size_greater_than_or_equal(3))
+#
+# def test_inputs():
+#     x = 0
+#     browser.open('/inputs')
+#     action = ActionChains(browser.driver)
+#     browser.element('#content > div > div > div > input[type=number]').click()
+#     for _ in range(10):
+#         x = x + 1
+#         action.send_keys(Keys.ARROW_UP).perform()
+#         browser.element('input[type=number]').should(have.value(str(x)))
+#
+# def test_jquery():
+#     browser.open('/jqueryui/menu')
+#     action = ActionChains(browser.driver)
+#     action.move_to_element(browser.element('#ui-id-3').locate()).perform()
+#     time.sleep(1)
+#     action.move_to_element(browser.element('#ui-id-4').locate()).perform()
+#     time.sleep(1)
+#     action.move_to_element(browser.element('#ui-id-5').locate()).perform()
+#     time.sleep(1)
+#     browser.element('#ui-id-5').click()
+# def test_js_alerts():
+#     browser.open('/javascript_alerts')
+#     action = ActionChains(browser.driver)
+#
+#     action.move_to_element(browser.element('#content > div > ul > li:nth-child(1) > button').locate()).click().perform()
+#     alert = browser.driver.switch_to.alert
+#     alert.accept()
+#     browser.element('#result').should(have.text('You successfully clicked an alert'))
+#
+#     action.move_to_element(browser.element('#content > div > ul > li:nth-child(2) > button').locate()).click().perform()
+#     alert = browser.driver.switch_to.alert
+#     alert.accept()
+#     browser.element('#result').should(have.text('You clicked: Ok'))
+#
+#     action.move_to_element(browser.element('#content > div > ul > li:nth-child(3) > button').locate()).click().perform()
+#     alert = browser.driver.switch_to.alert
+#     alert.send_keys('WWW')
+#     alert.accept()
+#     browser.element('#result').should(have.text('You entered: WWW'))
+#
+# def test_javascript_error():
+#     browser.open('/javascript_error')
+#
+#     log = browser.driver.get_log("browser")
+#     js = [entry for entry in log if entry["level"] == "SEVERE"]
+#     assert js
+#
+# def test_key_presses():
+#     browser.open('/key_presses?')
+#     action = ActionChains(browser.driver)
+#
+#     action.send_keys(Keys.ENTER).perform()
+#     browser.element('#result').should(have.text('You entered: ENTER'))
+#
+#     action.send_keys(Keys.TAB).perform()
+#     browser.element('#result').should(have.text('You entered: TAB'))
+#
+#     action.send_keys(Keys.ESCAPE).perform()
+#     browser.element('#result').should(have.text('You entered: ESCAPE'))
+#
+#     action.send_keys(Keys.ARROW_UP).perform()
+#     browser.element('#result').should(have.text('You entered: UP'))
+# def test_large():
+#     browser.open('/large')
+#     action = ActionChains(browser.driver)
+#     for i in range(1,51):
+#         for j in range(1,51):
+#             browser.element(f'#large-table tbody tr:nth-child({i}) td:nth-child({j})').should(have.text(f'{i}.{j}'))
+#             browser.element(f'#large-table tbody tr:nth-child({i}) td:nth-child({j})').should(be.visible)
+#
+#     for i2 in range(1,51):
+#         for j2 in range(1,4):
+#             browser.element(f"#sibling-{i2}\\.{j2}").should(have.text(f'{i2}.{j2}'))
+#             browser.element(f"#sibling-{i2}\\.{j2}").should(be.visible)
 
-def test_inputs():
-    x = 0
-    browser.open('/inputs')
-    action = ActionChains(browser.driver)
-    browser.element('#content > div > div > div > input[type=number]').click()
-    for _ in range(10):
-        x = x + 1
-        action.send_keys(Keys.ARROW_UP).perform()
-        browser.element('input[type=number]').should(have.value(str(x)))
+def test_windows():
+    browser.open('/windows')
+    browser.element('#content > div > a').click()
+    window = browser.driver.current_window_handle
+    new_window = [w for w in browser.driver.window_handles
+                  if w != window][0]
+    browser.driver.switch_to.window(new_window)
+    browser.should(have.url_containing('/windows/new'))
+    browser.element('body > div.example').should(have.text('New Window'))
